@@ -1,0 +1,41 @@
+Furlang
+
+Copyright 2012 Matthew Mole <code@gairne.co.uk>, Peter Sandy <pudabudigada@gmail.com>
+
+Available at: https://github.com/gairne/furlang
+
+-------
+WARNING
+-------
+This is a naive interpreter and is full of vulnerabilities.
+This will not be maintained and is a tool for learning and experience.
+DO NOT use this in a production environment, including safety-critical and economically-critical environments.
+
+
+--------
+BUILDING
+--------
+
+make clean && make
+
+
+-------
+RUNNING
+-------
+
+./furlang example
+
+The example program puts a load of numbers on the stack, adds them, subtracts a few etc... then prints two results.
+
+For more information #define DEBUG and DEBUG_PRINTSTACK in intepreter.c
+
+At the moment, the interpreter reads in two characters at a time per instruction.
+The first character is the opcode. The second character is the operand (optional in some cases).
+
+Valid opcodes are:
+0 - Pop and add the top two integers on the stack and push the result
+1 - Load an integer literal on the stack
+2 - Pop and subtract the penultimate-top integer on the stack by the top integer on the stack and push the result
+3 - Pop and multiply the top two integers on the stack and push the result
+4 - Pop and divide the penultimate-top integer on the stack by the top integer on the stack and push the result
+5 - Print the top of the stack as an integer
